@@ -4,17 +4,18 @@
 
 
 
-<%  if @person.errors.any? %>
+<%= form_for @person, html: {class: "form-horizontal"} do |f| %>
 
-<%= pluralize(@person.errors.count, "error") %>
-    prohibited this person form being saved:
-
-<%= @person.errors.full_messages.each do |message| %>
-<li><%= :message %><li>
-
-<% end %>
-<% end %>
-
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @person.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% end %>
 
 
 
